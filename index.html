@@ -66,10 +66,26 @@
         </a>
     </div>
     
+    <main>
+        <form id="contact-me" name="contact-me">
+        <input name="name" type="text" />
+        <input name="email" type="email" />
+        <input type="submit" id="submit" />
+        </form>
+    </main>
+    
 
     <footer>
 
     </footer>
+    
+    <script src="https://static.formx.stream/tracker/v1/bundle.js"></script>
+    <script>
+    var formx = FormX.set()
+    formx.trackProject('personal-portfolio_feb1192f-8400-4969-b39a-079b4b8791c2')
+    formx.trackForm('contact-me_33bc9fff-4284-44a7-9850-39eb3c70f2d0', 'contact-me')
+    formx.start()
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
