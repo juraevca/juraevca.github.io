@@ -1,97 +1,782 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="select-none scroll-smooth">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Nosirjon, Juraev, Data Scientist, Full-stack, Developer, Economist">
-    <meta name="description" content="This website is created just for Canada! Very happy to move here!">
-    <meta name="author" content="Nosirjon Juraev">
-    <meta name="copyright" content="Nosirjon Juraev">
-    <meta name="theme-color" content="#000">
-
-    <title>Nosirjon Juraev</title>
-
-    <link type="image/x-icon" href="images/maple_leave_green.png" rel="icon">
-    <link href="css/style.css" rel="stylesheet">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js"
-        integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="Nosirjon, Juraev, Data Scientist, Full-stack, Developer, Economist" />
+  <meta name="description" content="This website is created for Canada! We are very happy to move here!" />
+  <meta name="author" content="Nosirjon Juraev" />
+  <meta name="copyright" content="Nosirjon Juraev" />
+  <meta name="theme-color" content="#000" />
+  <title>Nosirjon Juraev</title>
+  <link type="image/x-icon" href="images/maple_leave_green.png" rel="icon" />
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- font awesome css-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <!-- font awesome js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+  <script src="js/main.js"></script>
 </head>
 
-<body class="antialiased">
-    <header>
-        <div id="particles-js"></div>
-        <div class="legacy-note">
-            <span><i class="fa-solid fa-circle-question"></i><em>Crafted by N.Juraev for Canada </em><span
-                    class="heart-character">♥</span></span>
-        </div>
-    </header>
+<body class="bg-white dark:bg-[#1f1e21]">
 
-    <nav>
-        <ul>
-            <a href="#About-me">
-                <li class="active">About me</li>
-            </a>
-            <a href="#work-experience">
-                <li>Work Experience</li>
-            </a>
-            <a href="#education">
-                <li>Educational Background</li>
-            </a>
-            <a href="#portfolio">
-                <li>Portfolio</li>
-            </a>
-            <a href="#contact-me">
-                <li>Contact me</li>
-            </a>
-        </ul>
+  <!-- particles -->
+  <div>
+    <div id="particles-js" class="dark:invisible particles"></div>
+    <div id="particles-js2" class="invisible dark:visible particles"></div>
+  </div>
+
+  <!-- header -->
+  <header class="inset-x-0 z-50 bg-slate-200 dark:bg-[#3b373a] sticky top-[-1px] h-8 p-0 m-0">
+    <nav class="flex items-center justify-between lg:px-0" aria-label="Global">
+
+      <!-- mobile menu open bar -->
+      <div class="flex ml-1">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 lg:hidden">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- menu -->
+      <ul class="hidden lg:flex lg:gap-x-0 max-w-[800px]" id="menu">
+        <a href="#coverletter" class="menu_item selfactive active">
+          <li class="text-inherit"> Cover Letter</li>
+        </a>
+        <a href="#workexperience" class="menu_item">
+          <li>Work Experience</li>
+        </a>
+        <a href="#educationalbackground" class="menu_item">
+          <li>Educational Background</li>
+        </a>
+        <a href="#portfolio" class="menu_item">
+          <li>Portfolio</li>
+        </a>
+        <a href="#contactme" class="menu_item">
+          <li>Contact me</li>
+        </a>
+      </ul>
+
+      <!-- theme switch -->
+      <div class="flex lg:flex-2 mr-1" id="theme">
+        <div class="dark:hidden text-gray-700 mt-1">Dark mode → </div>
+        <div class="hidden dark:flex text-gray-400 mt-1">Light mode → </div>
+        <i class="dark:hidden flex fas fa-moon bg-inherit text-gray-500 hover:cursor-pointer hover:text-gray-950 p-2"></i>
+        <i class="hidden dark:flex fas fa-sun bg-inherit text-gray-300 hover:cursor-pointer hover:text-white p-2"></i>
+      </div>
+
     </nav>
 
-    <div class="social-media">
-        <a href=""><i class="fa-brands fa-github"></i></a>
-        <a href=""><i class="fa-brands fa-linkedin"></i></a>
-        <a href=""><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://ideas.repec.org/e/pju144.html#cites">
-            <i class="fa-solid fa-book-open"></i>
-        </a>
+    <!-- mobile menu -->
+    <div class="hidden" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 z-50"></div>
+      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+
+        <div class="flex items-center justify-end">
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <a href="#" class="mobile_menu">About me</a>
+              <a href="#" class="mobile_menu">Work Experience</a>
+              <a href="#" class="mobile_menu">Educational Background</a>
+              <a href="#" class="mobile_menu">Portfolio</a>
+              <a href="#" class="mobile_menu">Contact me</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    
-    <main>
-        <form id="contact-me" name="contact-me">
-        <input name="name" type="text" />
-        <input name="email" type="email" />
-        <input type="submit" id="submit" />
-        </form>
-    </main>
-    
 
-    <footer>
+  </header>
 
-    </footer>
-    
-    <script src="https://static.formx.stream/tracker/v1/bundle.js"></script>
-    <script>
+  <div class="relative isolate px-6 pt-[33px] lg:px-8">
+
+    <!-- business card -->
+    <div class="mx-auto max-w-[900px] flex justify-center mb-3">
+      <div class="flex flex-col items-center bg-slate-50 border border-gray-200 shadow sm:flex-row sm:max-w-xl hover:cursor-default dark:bg-[#2b2b2b] dark:hover:cursor-default dark:border-gray-700">
+
+        <div class="h-[256px] my_photo_container">
+          <img class="object-cover h-full w-auto my_photo" src="images/me.png" alt="">
+        </div>
+
+        <!-- business card info details -->
+        <div class="flex flex-col justify-between p-3 leading-normal">
+          <h5 class="text-2xl font-bold tracking-tight text-[#483934] dark:text-[#b0bec5]">Nosirjon Juraev</h5>
+          <h6 class="mb-2 dark:text-slate-400 text-slate-600" title="Economist, Statistician, Data Scientist, Data Analyst">full-stack <span class="hover:cursor-pointer text-slate-700 dark:text-slate-300">Data-Engineer</span></h6>
+          <h6 class="dark:text-[#bab9ba]"><strong>Location:</strong> Toronto, ON <em class="text-[#673ab7] dark:text-[#00bcd4]">(open to relocate)</em></h6>
+          <h6 class="dark:text-[#bab9ba]"><strong>Email:</strong> juraevca@gmail.com</h6>
+          <h6 class="dark:text-[#bab9ba]"><strong>Phone:</strong> +1 210 5665</h6>
+          <h6 class="dark:text-[#bab9ba] mb-1"><strong>Skills:</strong> <a href="#portfolio" class="text-[#673ab7] dark:text-[#00bcd4] underline">Skills</a></h6>
+          <h6 class="dark:text-[#bab9ba] mb-1"><strong>Status:</strong> <i> permanent resident </i></h6>
+          <hr>
+          <!-- business card footer -->
+          <div class="dark:text-[#d8d8d8] mt-3 flex justify-between">
+
+            <div>
+              <span class="inline-block italic"> Resume →</span>
+              <a class="mx-1 inline-block text-[#673ab7] dark:text-[#00bcd4]" href="" target="_blank"><i class="fa-regular fa-file-pdf h-5 hover:scale-110"></i></a>
+            </div>
+
+            <div>
+              <a class="mx-1" href="https://github.com/juraevca" target="_blank"><i class="fa-brands fa-github h-5 hover:scale-110"></i></a>
+              <a class="mx-1" href="" target="_blank"><i class="fa-brands fa-linkedin h-5 hover:scale-110"></i></a>
+              <a class="mx-1" href="" target="_blank"><i class="fa-brands fa-whatsapp h-5 hover:scale-110"></i></a>
+              <a class="mx-1" href="https://ideas.repec.org/e/pju144.html#cites" target="_blank"><i class="fa-solid fa-book-open h-5 hover:scale-110"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="mx-auto w-full max-w-[900px]  mb-7 flex justify-center">
+      <div class="text-gray-700 dark:text-gray-300">
+
+        <!-- short message -->
+        <section class="mb-7 text-gray-500 dark:text-gray-400">
+          <p class="text-justify first-letter:font-bold dark:first-letter:text-[#d8d8d8] first-letter:text-gray-900 first-letter:text-3xl italic">
+            Hi there! My name is Nosirjon Juraev, originally from Central Asia. But in heart, I admire, embrace Western
+            culture. I am married, and we have a little daughter named Sora, who is a
+            world to us. By degree, I am a qualified Economist and Econometrician with Finance as a minor. However,
+            life made me choose to go different directions at times either by choice or by necessity. Please, take
+            your time to go through my portfolio. If you are interested in me, and think that I could be a valuable
+            member of your team, please do not hesitate to contact me" — N.J.
+          </p>
+        </section>
+
+        <!-- cover letter -->
+        <section id="coverletter" class="mb-5">
+          <div class="flex justify-center font-bold mb-3">
+            <h2><span class="section_title">──● COVER LETTER ●──</span></h2>
+          </div>
+          <p class="text-justify">One of my core strengths is my ability to identify and resolve problems in an
+            efficient and
+            expeditious manner. I derive great pleasure from working with cutting-edge technologies and
+            upgrading my current technical skill set. My passion for mathematics has been a driving force
+            throughout my academic and professional pursuits. I excelled in school, have always been obsessed
+            with solving complex textbook problems and winning annual science Olympiads. These
+            experiences led me to explore various careers in related fields.
+
+            My educational journey began with a major in <em>Economics and Finance</em> from Westminster
+            University. I
+            was granted an assistantship at LSU, where I earned my master's degree in <em> Applied
+              Economics</em> and a
+            graduate certification in <em> Econometrics</em>. As a graduate teaching assistant, I gained insight
+            into the
+            minds of students and realized that anyone can learn as long as they have a modicum of interest and
+            a willingness to work hard.
+
+
+            After completing my assistantship, I was employed as a data scientist at a consulting company called
+            Induci Inc. During this time, I became deeply involved in machine learning models. Due to visa
+            limitations and partly family
+            circumstances, I was compelled to return back to Uzbekistan, where I got married and relocated to
+            Tashkent. I began working for the
+            HR department at Agrobank JSCB headquarters, where I eventually assumed the leadership of our
+            employee online training division. Through this role, I demonstrated that incentives (even those
+            without
+            substance) are more effective than any forms of punishment.</p>
+        </section>
+
+        <!-- work experience -->
+        <section id="workexperience" class="mb-5">
+
+          <div class="flex justify-center font-bold">
+            <h2><span class="section_title">──● Work experience ●──</span></h2>
+          </div>
+
+          <div class="dark:text-gray-100">
+            <div class="container px-4 py-4 mx-auto space-y-8" id="accordion-collapse2" data-accordion="collapse">
+
+              <!-- job 1 -->
+              <div class="cursor-pointer dark:bg-inherit" data-accordion-target="#accordion-collapse2-body-1" aria-expanded="true" aria-controls="accordion-collapse2-body-1">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative flex inline-block">
+                    <div class="mr-2 absolute top-0">
+                      <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> Mar 2022 - Present </span>
+                    <span class="font-normal">
+                      <table class="flex">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span class="font-bold">Head of Corporate Employee Online-training Division</span>
+                              <br>
+                              "Agrobank" Joint-Stock Commercial Bank
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </span>
+                  </span>
+                  <img class="dark:hidden h-5" src="images/agrobank.png" alt="">
+                  <img class="hidden dark:flex h-5" src="images/agrobank-dark.png" alt="">
+                </h3>
+                <ul id="accordion-collapse2-body-1" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse2-heading-1">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Developed and implemented training programs and strategies that align
+                        with the company's mission</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Reduced the number of on-premise trainings by 60%</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Conducted job analysis through different evaluation methods (Online
+                        tests, impulse surveys, random interviews)</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Created data pipelines for performance metrics and analytics</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- job 2 -->
+              <div class="cursor-pointer dark:bg-inherit" data-accordion-target="#accordion-collapse2-body-2" aria-expanded="false" aria-controls="accordion-collapse2-body-2">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative flex inline-block">
+                    <div class="mr-2 absolute top-0">
+                      <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> Aug 2021 - Mar 2022 </span>
+                    <span class="font-normal">
+                      <table class="flex">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span class="font-bold">Team Lead, Project Manager</span>
+                              <br>
+                              "Agrobank" Joint-Stock Commercial Bank
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </span>
+                  </span>
+                  <img class="dark:hidden h-5" src="images/agrobank.png" alt="">
+                  <img class="hidden dark:flex h-5" src="images/agrobank-dark.png" alt="">
+                </h3>
+                <ul id="accordion-collapse2-body-2" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse2-heading-2">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Univariate and Multivariate Time-Series Models
+                        ((Structural/Time-Varying/Markov Regime
+                        Switching) VAR, ARIMA, ARCH/GARCH, (Structural) VECM, Principle Component
+                        Analysis) and Forecasting</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- job 3 -->
+              <div class="cursor-pointer dark:bg-inherit" data-accordion-target="#accordion-collapse2-body-3" aria-expanded="false" aria-controls="accordion-collapse2-body-3">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative flex inline-block">
+                    <div class="mr-2 absolute top-0">
+                      <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> Jul 2019 - Jul 2020 </span>
+                    <span class="font-normal">
+                      <table class="flex">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span class="font-bold">Data analyst/scientist (OPT visa)</span>
+                              <br>
+                              Induci Inc.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </span>
+                  </span>
+                  <!-- <img class="h-5" src="images/agrobank.png" alt=""> -->
+                </h3>
+                <ul id="accordion-collapse2-body-3" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse2-heading-3">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Univariate and Multivariate Time-Series Models
+                        ((Structural/Time-Varying/Markov Regime
+                        Switching) VAR, ARIMA, ARCH/GARCH, (Structural) VECM, Principle Component
+                        Analysis) and Forecasting</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- job 4 -->
+              <div class="cursor-pointer dark:bg-inherit" data-accordion-target="#accordion-collapse2-body-4" aria-expanded="false" aria-controls="accordion-collapse2-body-4">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative flex inline-block">
+                    <div class="mr-2 absolute top-0">
+                      <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> Jul 2019 - Jul 2020 </span>
+                    <span class="font-normal">
+                      <table class="flex">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span class="font-bold">Teaching/Research assistant (Microeconomics,
+                                Macroeconomics)</span>
+                              <br>
+                              Louisiana State University
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </span>
+                  </span>
+                  <img class="h-9" src="images/lsu.jpeg" alt="">
+                </h3>
+                <ul id="accordion-collapse2-body-4" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse2-heading-3">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Univariate and Multivariate Time-Series Models
+                        ((Structural/Time-Varying/Markov Regime
+                        Switching) VAR, ARIMA, ARCH/GARCH, (Structural) VECM, Principle Component
+                        Analysis) and Forecasting</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- job 5 -->
+              <div class="cursor-pointer dark:bg-inherit" data-accordion-target="#accordion-collapse2-body-5" aria-expanded="false" aria-controls="accordion-collapse2-body-5">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative flex inline-block">
+                    <div class="mr-2 absolute top-0">
+                      <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> May 2014 - Aug 2019 </span>
+                    <span class="font-normal">
+                      <table class="flex">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span class="font-bold">Data analyst, remote</span>
+                              <br>
+                              Davyer...
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </span>
+                  </span>
+                  <!-- <img class="h-9" src="images/lsu.jpeg" alt=""> -->
+                </h3>
+                <ul id="accordion-collapse2-body-5" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse2-heading-5">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Univariate and Multivariate Time-Series Models
+                        ((Structural/Time-Varying/Markov Regime
+                        Switching) VAR, ARIMA, ARCH/GARCH, (Structural) VECM, Principle Component
+                        Analysis) and Forecasting</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        <!-- educational background -->
+        <section id="educationalbackground" class="mb-5">
+
+          <div class="flex justify-center font-bold">
+            <h2><span class="section_title">──● education (WES evaluated) ●──</span></h2>
+          </div>
+
+          <div class="dark:text-gray-100">
+            <div class="container px-4 py-4 mx-auto space-y-8" id="accordion-collapse" data-accordion="collapse">
+
+              <!-- education 1 -->
+              <div class="cursor-pointer dark:bg-inherit" data-accordion-target="#accordion-collapse-body-2" aria-expanded="true" aria-controls="accordion-collapse-body-2">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative">
+                    <div class="mr-2 absolute top-0 dark:bg-inherit dark:text-white">
+                      <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> 2017-2019 </span>
+                    <span class="font-normal"> Graduate Certificate in Advanced Econometrics, Louisiana State University, USA</span>
+                  </span>
+                  <span class="ml-5">GPA: A</span>
+                </h3>
+                <ul id="accordion-collapse-body-2" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse-heading-2">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Univariate and Multivariate Time-Series Models ((Structural/Time-Varying/Markov Regime Switching) VAR, ARIMA, ARCH/GARCH, (Structural) VECM, Principle Component Analysis) and Forecasting</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Panel Data analysis controlling Random/Fixed effects, GMM</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Simultaneous Equation Models (SUR)</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Binary choice models (Logit, Probit, Censored and Truncated models)</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Data manipulation (seasonal adjustment, standardization (where necessary), dealing with omitted variables, outliers, missing data, heteroscedasticity and other violations of basic assumptions)</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- education 2 -->
+              <div class="cursor-pointer  dark:bg-inherit" data-accordion-target="#accordion-collapse-body-1" aria-expanded="false" aria-controls="accordion-collapse-body-1">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative">
+                    <div class="mr-2 absolute top-0 dark:bg-inherit dark:text-white">
+                      <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> 2015-2017 </span>
+                    <span class="font-normal"> Masters of Science (MSc) in Applied Economics, Louisiana State University, USA</span>
+                  </span>
+                  <span class="ml-5">GPA: A</span>
+                </h3>
+                <ul id="accordion-collapse-body-1" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse-heading-1">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Economic growth theories/models (Solow, OLG, Ramsey, Endogenous)</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Uncertainty/risk, Lifecycle and Permanent income hypotheses, CAPM/CCAPM, Other investment theories (MPT)</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start  space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Dynamic Optimization, Asset pricing, Recursive Business Cycle models, General Equilibrium models, Job search and Match</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Advanced Microeconomics (principal-agent theories, welfare/utility maximization, game theory, market structure, behavioral economics)</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Derivation of causality using IV Regressions, 2SLS, Regression Discontinuity (RD) Design, Difference-in-Differences (DD) models</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Model fit comparison tests (Log-likelihood, F-test, Akaike information criterion (AIC), Bayesian information criterion (BIC))</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- education 3 -->
+              <div class="cursor-pointer  dark:bg-inherit" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                <h3 class="font-bold flex justify-between">
+                  <span class="relative">
+                    <div class="mr-2 absolute top-0">
+                      <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="mr-5 ml-9"> 2010-2014 </span>
+                    <span class="font-normal"> BSc in Economics and Finance, The University of Westminster, UK</span>
+                  </span>
+                  <span class="ml-5">GPA: First Class Honors</span>
+                </h3>
+                <ul id="accordion-collapse-body-3" class="hidden ml-[40px] bg-slate-100 dark:dark:bg-[#2b2b2b] mt-3" aria-labelledby="accordion-collapse-heading-3">
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Monetary policy targets and models</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Portfolio theory, risk and return, bond prices</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Discounted cash flow, Risk modeling, Credit Scoring</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Bonds, financial derivatives (types of options) and hedging</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-start space-x-2">
+                      <i class="fa-solid fa-circle-check mt-[6px]"></i>
+                      <h4 class="font-normal">Fundamentals of financial accounting (cash flow/ balance sheet/ income statements)</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        <!-- portfolio -->
+        <section id="portfolio">
+
+          <div class="flex justify-center font-bold mb-3">
+            <h2><span class="section_title">──● portfolio ●──</span></h2>
+          </div>
+
+          <!-- skills -->
+          <table class="table-auto border-collapse bg-slate-100 dark:dark:bg-[#2b2b2b]">
+            <tbody>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Programming and markup languages:</td>
+                <td class="w-7/10 border-0"><span>PHP</span>
+                  <i class="fa-brands fa-php h-5" title="Hypertext Preprocessor"></i> |
+                  <span>Javascript/ Typescript</span>
+                  <i class="fa-brands fa-square-js h-5" title="Javascript"></i> |
+                  <span>Python</span>
+                  <i class="fa-brands fa-python"></i> |
+                  <span>MySQL</span>
+                  <i class="fa-solid fa-database"></i> |
+                  <span>GraphQL</span>
+                  <i class="fa-solid fa-circle-nodes"></i> |
+                  <span>HTML</span>
+                  <i class="fa-brands fa-html5"></i> |
+                  <span>CSS</span>
+                  <i class="fa-brands fa-css3 h-5" title="Cascading Stylesheet"></i> |
+                  <span>Scripting languages (powershell, bash)</span> |
+                  <span>Java</span>
+                  <i class="fa-brands fa-java"></i> |
+                  <span>Matlab</span>
+                  <i class="fa-solid fa-chart-simple"></i> |
+                  <span>Stata</span>
+                  <i class="fa-solid fa-chart-simple"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Frameworks:</td>
+                <td class="w-7/10 border-0"><span class="underline text-slate-400">Back-end frameworks:</span>
+                  <span> Laravel</span>
+                  <i class="fa-brands fa-laravel"></i> |
+                  <span> Symfony</span>
+                  <i class="fa-brands fa-symfony"></i> |
+                  <span> Leaf</span>
+                  <i class="fa-solid fa-leaf"></i> |
+                  <span>Django</span>
+                  <i class="fa-brands fa-python"></i>
+                  </br>
+                  <span class="underline text-slate-400">Front-end frameworks:</span>
+                  <span> Vue.js</span>
+                  <i class="fa-brands fa-vuejs"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Web technologies:</td>
+                <td class="w-7/10 border-0"><span>RestAPI</span>
+                  <i class="fa-solid fa-globe"></i> |
+                  <span>AJAX, JQuery</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Operating systems:</td>
+                <td class="w-7/10 border-0"><span>Linux, Ubuntu, Red Hat, Windows Server</span></td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Databases: </td>
+                <td class="w-7/10 border-0"><span>Oracle</span>
+                  <i class="fa-solid fa-database"></i>,
+                  <span>Cassandra (NoSQL)</span>
+                  <i class="fa-solid fa-database"></i>,
+                </td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Version control:</td>
+                <td class="w-7/10 border-0"> <span>Git</span>
+                  <i class="fa-brands fa-git-alt"></i>,
+                  <span>Bitbucket</span>
+                  <i class="fa-brands fa-bitbucket"></i>,
+                  <span>Github</span>
+                  <i class="fa-brands fa-github"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Testing tools: </td>
+                <td class="w-7/10 border-0"><span>PHPUnit</span>
+                  <i class="fa-solid fa-microscope"></i>,
+                  <span>Selenium</span>
+                  <i class="fa-solid fa-vial-virus"></i>,
+                  <span>Postman</span>
+                  <i class="fa-solid fa-vial-circle-check"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Debugging tools: </td>
+                <td class="w-7/10 border-0"><span>Xdebug, XPath, Firepath, Firebug</span></td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Professional skills:</td>
+                <td class="w-7/10 border-0"></td>
+              </tr>
+              <tr>
+                <td class="w-3/10 border-0 font-bold">Soft skills:</td>
+                <td class="w-7/10 border-0"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="flex space-x-3 mb-5 mt-5">
+            <h3 class="mb-2 text-base font-bold text-gray-900 dark:text-white">Sample projects: </h3>
+          </div>
+
+          <!-- projects -->
+          <div class="grid lg:grid-cols-3 gap-2 sm:grid-cols-1 md:grid-cols-2">
+            <div class="project_card bg-[#3f51b5] dark:bg-slate-600 text-white"><img class="h-4/5 w-full" src="images/go_robot_architecture2.png" alt=""> AI based domain name search</div>
+            <div class="project_card">hello</div>
+            <div class="project_card">hello</div>
+            <div class="project_card">hello</div>
+            <div class="project_card">hello</div>
+            <div class="project_card">hello</div>
+          </div>
+
+        </section>
+
+        <!-- contact form -->
+        <section id="contactme" class="mt-5">
+
+          <div class="flex justify-center font-bold mb-3">
+            <h2><span class="section_title">──● contact me ●──</span></h2>
+          </div>
+
+          <p>If you are interested in me and would like to talk, please give me a call; I will pick up almost every
+            call. If for some reasons, you are not able to connect with me, you can leave a message here letting me
+            know best time to reach you. We are still trying to settle and call Canada our home. Thank you for understanding.</p>
+
+          <!-- comment form -->
+          <div class="flex mx-auto items-center justify-center w-full mb-5">
+            <form class="w-full mx-9 pt-2" id="contact-me" name="contact-me">
+              <div class="flex flex-wrap mb-6">
+                <div class="w-full md:w-full px-3 mb-2 mt-2">
+                  <textarea class="dark:bg-[#1a191b75] bg-slate-50 border border-gray-200 dark:border-gray-700 leading-normal resize-none w-full h-64 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white dark:text-gray-400" name="message" id="message" placeholder='Type your message..' required></textarea>
+                </div>
+                <div class="w-full md:w-full flex items-start md:w-full px-3">
+                  <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
+                    <svg fill="none" class="w-5 h-5 text-gray-600 mr-1" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p class="text-xs md:text-sm pt-px dark:text-gray-500">Uses <i> formx </i> to submit the form.</p>
+                  </div>
+                  <div class="-mr-1">
+                    <input type='submit' class="bg-white dark:bg-[#4b4a4a] dark:text-white dark:border-0 text-gray-700 font-medium py-1 px-4 border border-gray-200 dark:border-gray-700 tracking-wide mr-1 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600" value='Send message'>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- copyright to me -->
+  <footer>
+    <div class="w-full mx-auto p-2 bg-slate-200 dark:bg-[#3b373a]">
+      <span class="block text-sm text-gray-700 sm:text-center dark:text-gray-400">© 2023 This website is created by Nosirjon Juraev. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+  <!-- formx to submit form data on a static website -->
+  <script src="https://static.formx.stream/tracker/v1/bundle.js"></script>
+  <script>
     var formx = FormX.set()
     formx.trackProject('personal-portfolio_feb1192f-8400-4969-b39a-079b4b8791c2')
     formx.trackForm('contact-me_33bc9fff-4284-44a7-9850-39eb3c70f2d0', 'contact-me')
     formx.start()
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
-    </script>
-    <script src="js\particles.min.js"></script>
-    <script src="js\app.js"></script>
-    <script src="js\scripts.js"></script>
+  </script>
+  <!-- scripts -->
+  <script src="js\particles.min.js"></script>
+  <script src="js\app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+  <script src="https://static.formx.stream/tracker/v1/bundle.js"></script>
 </body>
 
 </html>
